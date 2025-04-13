@@ -1,3 +1,5 @@
+## Nextjs
+
 ### 基本的なディレクトリ構成
 
 ```
@@ -31,6 +33,59 @@ app/
 
 - app ディレクトリはデフォルトで SSR
 - クライアントサイドレンダリングや use effect(API からのデータ取得)を利用したい場合は、先頭に`"use client";`と書いておく
+
+### layout.tsx とは
+
+- 全体で共通のコンポーネントを管理するファイル
+- 具体的にはヘッダーやフッターなど
+- RootLayout メソッド内で以下のように記述する。{children}には page.tsx の内容が入る
+
+```
+  return (
+    <html lang="ja">
+      <body>
+        <header>Header</header>
+        {children}
+      </body>
+    </html>
+  );
+```
+
+### コンポーネント
+
+- ヘッダーやフッターなど全体で共通の部分はコンポーネントとして分割する。
+- コンポーネント名は必ず大文字で始める必要がある。コンポーネントのファイル名は大文字で始まるようにするのがベター
+- src/app に Header.tsx を作成し、layout.tsx から読み込む
+- rafce と入力し Tab キーでひな形が作成される。
+
+```ts
+// Header.tsx
+import React from "react";
+
+const Header = () => {
+  return <div>Header</div>;
+};
+
+export default Header;
+```
+
+- layout.tsx では import して`<Header />`
+
+```ts
+// layout.tsx
+
+return (
+  <html lang="ja">
+    <body>
+      <Header /> //　ここがヘッダーコンポーネント
+      {children}
+      <footer>footer</footer>
+    </body>
+  </html>
+);
+```
+
+## Tips
 
 ### ESLint とは
 
