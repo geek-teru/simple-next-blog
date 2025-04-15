@@ -99,3 +99,9 @@ ESLint は、JavaScript / TypeScript のコードを静的に解析して、構�
 - HTML CSS Support: HTML やスタイルの補完
 - Prettier - Code formatter: HTML などのコードフォーマッター
 - Material Icon Theme: アイコンをいい感じにする
+
+## aside タグ
+
+- 補足的な内容や本筋から少し離れた情報を示すために利用する。プロフィールや広告など
+- <section className="w-full md:w-2/3 flex flex-col items-center px-3">はメインのセクションが2/3の割合
+- <aside className="w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6">はasideが1/3の割合
